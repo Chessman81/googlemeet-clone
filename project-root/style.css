@@ -1,0 +1,220 @@
+body {
+  background: #181a20;
+  color: #f1f1f1;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+.container, .meeting-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.actions {
+  margin-top: 32px;
+  display: flex;
+  gap: 12px;
+}
+input[type='text'] {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #23272f;
+  color: #f1f1f1;
+  font-size: 1rem;
+}
+button {
+  background: #23272f;
+  color: #f1f1f1;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+button.primary {
+  background: #3a8bfd;
+  color: #fff;
+}
+button.danger {
+  background: #e74c3c;
+  color: #fff;
+}
+button:hover, button.active {
+  background: #3a3f4b;
+}
+.material-icons {
+  font-size: 1.5rem;
+}
+.videos {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  margin-bottom: 24px;
+  justify-content: center;
+  align-items: center;
+}
+.video-frame {
+  position: relative;
+  width: 380px;
+  height: 280px;
+  background: #222;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #000a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+video {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  background: #222;
+  display: block;
+}
+.avatar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 96px;
+  height: 96px;
+  background: #3a8bfd;
+  color: #fff;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 12px #0007;
+}
+.controls {
+  position: fixed;
+  bottom: 32px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  z-index: 10;
+}
+#emojiOverlay {
+  position: fixed;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  pointer-events: none;
+  transition: opacity 0.5s;
+  opacity: 0;
+  z-index: 30;
+}
+#emojiOverlay.show {
+  opacity: 1;
+}
+#chatBox {
+  position: fixed;
+  right: 32px;
+  bottom: 90px;
+  width: 340px;
+  max-width: 95vw;
+  background: #23272f;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #000a;
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+  animation: fadeIn 0.2s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+#chatBox.hidden {
+  display: none;
+}
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 18px;
+  background: #181a20;
+  border-bottom: 1px solid #333;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+#chatMessages {
+  flex: 1;
+  padding: 14px;
+  overflow-y: auto;
+  min-height: 120px;
+  max-height: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.chat-bubble {
+  background: #3a3f4b;
+  color: #f1f1f1;
+  border-radius: 16px;
+  padding: 10px 16px;
+  max-width: 80%;
+  align-self: flex-start;
+  font-size: 1rem;
+  word-break: break-word;
+}
+.chat-bubble.me {
+  background: #3a8bfd;
+  color: #fff;
+  align-self: flex-end;
+}
+#chatForm {
+  display: flex;
+  border-top: 1px solid #333;
+}
+#chatInput {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: #181a20;
+  color: #f1f1f1;
+  border-radius: 0 0 0 16px;
+  font-size: 1rem;
+}
+#chatForm button {
+  background: #3a8bfd;
+  color: #fff;
+  border: none;
+  padding: 0 18px;
+  border-radius: 0 0 16px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#raiseHandBtn.raised {
+  background: #f1c40f;
+  color: #222;
+}
+@media (max-width: 900px) {
+  .videos {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .video-frame {
+    width: 90vw;
+    height: 36vw;
+    min-height: 180px;
+    max-width: 98vw;
+  }
+}

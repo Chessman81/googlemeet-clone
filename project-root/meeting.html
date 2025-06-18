@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Meeting Room</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+  <div class="meeting-container">
+    <div class="videos">
+      <div class="video-frame">
+        <video id="localVideo" autoplay muted playsinline></video>
+        <div class="avatar" id="localAvatar"></div>
+      </div>
+      <div class="video-frame">
+        <video id="remoteVideo" autoplay playsinline></video>
+        <div class="avatar" id="remoteAvatar"></div>
+      </div>
+    </div>
+    <div class="controls">
+      <button id="micBtn" aria-label="Toggle Mic" title="Mic"><span class="material-icons">mic</span></button>
+      <button id="videoBtn" aria-label="Toggle Video" title="Camera"><span class="material-icons">videocam</span></button>
+      <button id="emojiBtn" aria-label="Send Emoji" title="Emoji"><span class="material-icons">mood</span></button>
+      <button id="raiseHandBtn" aria-label="Raise Hand" title="Raise Hand"><span class="material-icons">pan_tool</span></button>
+      <button id="chatToggleBtn" aria-label="Open Chat" title="Chat"><span class="material-icons">chat</span></button>
+      <button id="hangupBtn" aria-label="Hang Up" title="Hang Up" class="danger"><span class="material-icons">call_end</span></button>
+    </div>
+    <div id="chatBox" class="chat-box hidden">
+      <div class="chat-header">
+        <span>Chat</span>
+        <button id="closeChatBtn" aria-label="Close Chat"><span class="material-icons">close</span></button>
+      </div>
+      <div id="chatMessages"></div>
+      <form id="chatForm">
+        <input type="text" id="chatInput" autocomplete="off" placeholder="Type a message..." />
+        <button type="submit"><span class="material-icons">send</span></button>
+      </form>
+    </div>
+    <div id="emojiOverlay"></div>
+    <p id="meetingCode"></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
